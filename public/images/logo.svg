@@ -1,0 +1,11 @@
+<svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="6" width="36" height="36" rx="10" fill="#2B8CFF"/>
+  <!-- Wind / climate icon waves -->
+  <path d="M12 18H24C26.2 18 28 16.2 28 14C28 11.8 26.2 10 24 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M10 24H27C29.2 24 31 25.8 31 28C31 30.2 29.2 32 27 32" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M12 30H20C21.1 30 22 29.1 22 28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Text -->
+  <text x="48" y="24" fill="#0B1F33" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" letter-spacing="-0.02em">ЦЕНТР</text>
+  <text x="108" y="24" fill="#2B8CFF" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="800" letter-spacing="-0.02em">КОНДИЦИОНЕРОВ</text>
+  <text x="48" y="37" fill="#687382" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" letter-spacing="0.08em">КЛИМАТИЧЕСКАЯ ТЕХНИКА И МОНТАЖ</text>
+</svg>
