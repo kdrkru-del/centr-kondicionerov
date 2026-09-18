@@ -1,0 +1,7 @@
+<svg width="400" height="260" viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="260" rx="16" fill="#F8FAFC"/>
+  <rect x="60" y="70" width="280" height="90" rx="12" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2"/>
+  <line x1="80" y1="135" x2="320" y2="135" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="300" cy="95" r="4" fill="#3B82F6"/>
+  <text x="200" y="195" fill="#64748B" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">Изображение модели уточняется</text>
+</svg>

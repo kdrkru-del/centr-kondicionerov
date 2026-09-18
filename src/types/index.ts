@@ -2,43 +2,55 @@ export interface Product {
   id: string;
   slug: string;
   brand: 'MDV' | 'AMSTON' | 'HUNBERG' | 'DAHATSU';
-  name: string;
-  model: string;
   series: string;
-  description: string;
+  model: string;
+  name: string;
+  shortName: string;
+  originalName?: string;
+  compressorType: 'Inverter' | 'On-Off';
+  itemType: 'product' | 'series';
+  area: number | null;
+  areaMin: number | null;
+  areaMax: number | null;
+  seriesAreaRange: string | null;
+  areaNote: string | null;
+  price: number | null;
+  priceFrom: boolean;
+  installationPrice: number | null;
+  priceWithInstallation: number | null;
+  priceType: 'equipment' | 'equipment_from' | 'with_installation' | 'unknown';
+  description: string | null;
+  shortDescription: string | null;
   image: string;
   gallery: string[];
-  price: number; // цена оборудования
-  installationPrice: number; // цена стандартного монтажа
-  totalPrice: number; // цена «под ключ»
-  areaMin: number;
-  areaMax: number;
-  compressorType: 'Inverter' | 'On-Off';
-  coolingCapacity: string; // кВт
-  heatingCapacity: string; // кВт
-  noiseLevel: string; // дБ
-  energyClass: string;
-  wifi: boolean;
-  warranty: string;
-  isPopular?: boolean;
-  isHit?: boolean;
-  isFeatured?: boolean;
-  category: 'economy' | 'standard' | 'premium';
   features: string[];
   specifications: Record<string, string>;
+  isPopular: boolean;
+  isFeatured: boolean;
+  isHit?: boolean;
+  category?: 'economy' | 'standard' | 'premium';
+  badge: string | null;
+  available: boolean;
+  wifi: boolean | null;
+  energyClass: string | null;
+  noiseLevel: string | null;
+  coolingCapacity: string | null;
+  heatingCapacity: string | null;
+  warranty: string | null;
+  sourceUrl: string;
+  missingData: string[];
 }
 
 export interface BrandInfo {
   id: string;
-  name: string;
   slug: string;
-  country: string;
-  tagline: string;
-  description: string;
-  warrantyYears: number;
-  highlight: string;
-  features: string[];
+  name: 'MDV' | 'AMSTON' | 'HUNBERG' | 'DAHATSU';
   logo: string;
+  shortDescription: string;
+  description: string;
+  order: number;
+  features: string[];
+  warrantyYears: number;
 }
 
 export interface CityData {
@@ -50,7 +62,7 @@ export interface CityData {
   description: string;
   phone: string;
   mobilePhone: string;
-  address: string;
+  address: string | null;
   workHours: string;
   deliveryTerms: string;
   features: string[];
