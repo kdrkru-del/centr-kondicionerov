@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
@@ -34,10 +34,6 @@ export const AreaSelector: React.FC<AreaSelectorProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <Maximize2 className="w-3.5 h-3.5" />
-            <span>Подбор по площади</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Выберите площадь помещения
           </h2>

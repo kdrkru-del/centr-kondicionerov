@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 
@@ -14,11 +14,6 @@ export const HomeCtaBanner: React.FC<HomeCtaBannerProps> = ({ onOpenModal }) => 
           <div className="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-4">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Профессиональный монтаж во Владивостоке</span>
-            </div>
-
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-4">
               Не уверены, какая мощность подойдёт для вашего помещения?
             </h2>

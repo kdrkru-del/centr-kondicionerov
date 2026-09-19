@@ -35,9 +35,6 @@ export const WarrantySection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Why we take full responsibility */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="px-3.5 py-1.5 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-full uppercase tracking-wider border border-blue-500/30">
-              Комплексный подход
-            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
               Почему мы устанавливаем <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-300">

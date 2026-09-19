@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Sparkles, ArrowRight, CheckCircle2, Sliders, Layers } from 'lucide-react';
 
@@ -28,10 +28,6 @@ export const SelectionTeaser: React.FC = () => {
     <section className="py-16 sm:py-20 bg-slate-50/70 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Онлайн-подбор</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Быстрый подбор кондиционера
           </h2>

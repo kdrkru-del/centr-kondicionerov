@@ -15,10 +15,6 @@ export const FaqSection: React.FC = () => {
     <section id="faq" className="py-16 sm:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Частые вопросы</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Ответы на популярные вопросы
           </h2>

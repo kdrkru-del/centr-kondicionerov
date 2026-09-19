@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Product } from '@/types';
 import { ProductCard } from '@/components/catalog/ProductCard';
@@ -23,10 +23,6 @@ export const PopularProducts: React.FC<PopularProductsProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wider mb-3">
-              <Flame className="w-3.5 h-3.5 text-amber-500" />
-              <span>Хиты продаж</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Популярные сплит-системы
             </h2>

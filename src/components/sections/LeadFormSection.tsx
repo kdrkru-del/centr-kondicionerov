@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
@@ -70,10 +70,7 @@ export const LeadFormSection: React.FC = () => {
             {/* Left: Contact Information & Messengers */}
             <div className="lg:col-span-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 sm:p-12 flex flex-col justify-between">
               <div>
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-300 text-xs font-bold rounded-full uppercase tracking-wider">
-                  Контакты и заказ
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mt-3 mb-4">
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-4">
                   {COMPANY_CONFIG.name}
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed mb-8">
@@ -185,10 +182,7 @@ export const LeadFormSection: React.FC = () => {
               ) : (
                 <div>
                   <div className="mb-8">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                      Быстрая заявка
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
+                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                       Подберём кондиционер под ваше помещение
                     </h3>
                     <p className="text-slate-500 text-sm mt-1.5 leading-relaxed">

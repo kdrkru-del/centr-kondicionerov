@@ -34,12 +34,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 w-full">
         <div className="max-w-xl lg:max-w-2xl space-y-6 sm:space-y-8">
           
-          {/* Корпоративный бейдж статуса */}
-          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-md bg-[#0062D2]/10 border border-[#0062D2]/20 text-xs sm:text-sm font-bold text-[#0062D2]">
-            <Award className="w-4 h-4 text-[#0062D2] shrink-0" />
-            <span>Официальный поставщик климатических систем в Приморье</span>
-          </div>
-
           {/* Заголовок в уверенном стиле лидера рынка Daikin */}
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.12] text-slate-900">
