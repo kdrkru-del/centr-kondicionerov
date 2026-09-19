@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -43,14 +43,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           {/* Заголовок в уверенном стиле лидера рынка Daikin */}
           <div className="space-y-3">
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-black tracking-tight leading-[1.12] text-slate-900">
-              Японские и премиальные <br />
+              Надёжные сплит-системы <br />
               <span className="text-[#0062D2]">
-                сплит-системы
-              </span>{' '}
-              с установкой
+                с профессиональным монтажом
+              </span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-medium leading-relaxed pt-1 max-w-xl">
-              Прямые поставки сертифицированного климатического оборудования мировых брендов. Профессиональный монтаж по ГОСТ во Владивостоке, Артёме и Уссурийске.
+              Официальное климатическое оборудование с заводской гарантией до 4 лет. Доставка и аккуратная установка во Владивостоке, Артёме и Уссурийске.
             </p>
           </div>
 
