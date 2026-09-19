@@ -42,43 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
   return (
     <>
-      {/* 1. Верхняя фирменная статусная плашка (уровень мирового бренда Daikin) */}
-      <div className="bg-[#0B1528] text-slate-300 text-[11px] sm:text-xs py-2 hidden md:block border-b border-white/10 tracking-tight">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-1.5 text-white font-medium">
-              <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-              <span>{COMPANY_CONFIG.citiesListText}</span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 ml-1.5 animate-pulse" />
-              <span className="text-[11px] text-emerald-400 font-semibold">Склад и монтажные бригады в наличии</span>
-            </div>
-            <div className="flex items-center space-x-1.5 text-slate-400">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
-              <span>Ежедневно 8:00 – 21:00 без выходных</span>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-1.5 text-slate-200 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-              <span>Официальная гарантия до 4 лет • Расчёт строго по факту сдачи</span>
-            </div>
-            <div className="flex items-center space-x-3 pl-3 border-l border-white/15">
-              <a
-                href="https://wa.me/79147061161"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-emerald-400 transition flex items-center space-x-1.5 text-slate-200 font-medium group"
-              >
-                <MessageSquare className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition" />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Основная линия навигации (Daikin Corporate Clean Style) */}
+      {/* Основная линия навигации (Daikin Corporate Clean Style) */}
       <header
         className={`sticky top-0 z-40 transition-all duration-200 ${
           isScrolled
