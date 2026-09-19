@@ -1,5 +1,6 @@
-<svg width="160" height="50" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="160" height="50" rx="8" fill="#F5F7FA"/>
-  <text x="80" y="32" fill="#0B1F33" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" letter-spacing="0.1em" text-anchor="middle">MDV</text>
-  <circle cx="128" cy="18" r="3" fill="#2B8CFF"/>
+﻿<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15 45V15H25L35 32L45 15H55V45H45V27L36 41H34L25 27V45H15Z" fill="#005BA4"/>
+  <path d="M65 15H82C93 15 101 21 101 30C101 39 93 45 82 45H65V15ZM75 37H81C87 37 91 34 91 30C91 26 87 23 81 23H75V37Z" fill="#005BA4"/>
+  <path d="M107 15H118L130 38L142 15H153L136 45H124L107 15Z" fill="#005BA4"/>
+  <path d="M165 24C165 24 176 18 190 20C204 22 210 32 210 32C210 32 201 37 188 35C175 33 165 24 165 24Z" fill="#00A0E9"/>
 </svg>

@@ -391,11 +391,6 @@ export const CatalogClient: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-3">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-black uppercase tracking-wider">
-                <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-                <span>КАТАЛОГ КЛИМАТИЧЕСКОЙ ТЕХНИКИ</span>
-              </div>
-
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F33] tracking-tight leading-[1.1]">
                 Кондиционеры с установкой во Владивостоке
               </h1>
@@ -433,7 +428,7 @@ export const CatalogClient: React.FC = () => {
             <div className="hidden lg:flex lg:col-span-4 justify-center items-center relative h-52">
               <div className="relative w-full h-full">
                 <Image
-                  src="/images/hero/air-conditioner-hero.png"
+                  src={getAssetUrl('/images/hero/air-conditioner-hero.png')}
                   alt="Премиальная сплит-система"
                   fill
                   priority
@@ -841,9 +836,6 @@ export const CatalogClient: React.FC = () => {
                           }
                         >
                           <div className="space-y-1.5 text-center sm:text-left">
-                            <span className="inline-block px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[10px] font-bold uppercase tracking-wider">
-                              Помощь с подбором
-                            </span>
                             <h3 className="text-lg sm:text-xl font-black tracking-tight">
                               Не знаете, какой кондиционер выбрать?
                             </h3>

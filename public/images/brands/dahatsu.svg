@@ -1,5 +1,5 @@
-<svg width="160" height="50" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="160" height="50" rx="8" fill="#F5F7FA"/>
-  <text x="80" y="32" fill="#0B1F33" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" letter-spacing="0.14em" text-anchor="middle">DAHATSU</text>
-  <path d="M72 10L80 5L88 10" stroke="#2B8CFF" stroke-width="2" stroke-linecap="round"/>
+﻿<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- DAHATSU Brand Vector Mark with dynamic climate air wave -->
+  <text x="110" y="38" fill="#1C2A39" font-family="'Segoe UI', Roboto, -apple-system, sans-serif" font-size="26" font-weight="900" letter-spacing="0.14em" text-anchor="middle">DAHATSU</text>
+  <path d="M102 12L110 5L118 12" stroke="#0077E6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

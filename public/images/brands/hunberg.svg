@@ -1,5 +1,6 @@
-<svg width="160" height="50" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="160" height="50" rx="8" fill="#F5F7FA"/>
-  <text x="80" y="32" fill="#0B1F33" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" letter-spacing="0.14em" text-anchor="middle">HUNBERG</text>
-  <rect x="25" y="12" width="6" height="6" rx="1" fill="#2B8CFF"/>
+﻿<svg width="220" height="60" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- HUNBERG Brand Vector Mark -->
+  <text x="110" y="38" fill="#1C2A39" font-family="'Segoe UI', Roboto, -apple-system, sans-serif" font-size="25" font-weight="900" letter-spacing="0.14em" text-anchor="middle">HUNBERG</text>
+  <!-- Modern climate crown accent above H -->
+  <rect x="23" y="10" width="10" height="4" rx="2" fill="#0077E6"/>
 </svg>
