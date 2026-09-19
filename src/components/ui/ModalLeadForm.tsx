@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ModalProductData } from '@/components/providers/ModalProvider';
 import { Wrench } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 interface ModalLeadFormProps {
   isOpen: boolean;
@@ -172,7 +173,7 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
                 {productData.image && (
                   <div className="relative w-16 h-12 shrink-0 bg-white rounded-xl border border-slate-200/60 p-1 flex items-center justify-center">
                     <Image
-                      src={productData.image}
+                      src={getAssetUrl(productData.image)}
                       alt={productData.name || 'Кондиционер'}
                       fill
                       className="object-contain p-0.5"

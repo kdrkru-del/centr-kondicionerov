@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types';
 import { X, Wrench, Shield, CheckCircle, ArrowRight, MessageSquare, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -75,7 +76,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             {/* Image Column */}
             <div className="sm:col-span-5 relative h-56 sm:h-72 bg-gradient-to-b from-slate-50 to-white rounded-2xl border border-slate-100 flex items-center justify-center p-4">
               <Image
-                src={product.image}
+                src={getAssetUrl(product.image)}
                 alt={product.name}
                 fill
                 sizes="(max-width: 640px) 100vw, 300px"

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BRANDS } from '@/data/brands';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 export const BrandsSection: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ export const BrandsSection: React.FC = () => {
               <div>
                 <div className="relative h-14 w-full mb-6 flex items-center justify-center p-2 rounded-2xl bg-white border border-slate-100">
                   <Image
-                    src={brand.logo}
+                    src={getAssetUrl(brand.logo)}
                     alt={brand.name}
                     fill
                     className="object-contain p-2"

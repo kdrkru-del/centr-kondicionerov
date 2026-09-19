@@ -19,6 +19,7 @@ import {
   Phone,
   RotateCcw
 } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 interface Props {
   brand: BrandInfo;
@@ -192,7 +193,7 @@ export const BrandDetailClient: React.FC<Props> = ({ brand, products }) => {
             <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-white rounded-2xl border border-slate-200/80 shadow-2xs">
               <div className="relative h-16 w-44 mb-3">
                 <Image
-                  src={brand.logo}
+                  src={getAssetUrl(brand.logo)}
                   alt={brand.name}
                   fill
                   className="object-contain"

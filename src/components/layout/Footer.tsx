@@ -10,14 +10,27 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Col 1: About company */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-block">
-              <div className="relative h-11 w-52 bg-white/90 px-3 py-1 rounded-xl">
-                <Image
-                  src="/images/logo.svg"
-                  alt="Центр кондиционеров"
-                  fill
-                  className="object-contain"
-                />
+            <Link href="/" className="inline-flex items-center space-x-3 focus:outline-none group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-sky-500 to-cyan-400 p-[1px] shadow-lg shadow-blue-500/20 group-hover:scale-105 transition duration-300">
+                <div className="w-full h-full bg-[#0B1528] rounded-[11px] flex items-center justify-center">
+                  <svg className="w-5 h-5 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04" />
+                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center space-x-1.5">
+                  <span className="text-base font-black text-white tracking-tight leading-none">
+                    ЦЕНТР
+                  </span>
+                  <span className="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400 tracking-tight leading-none">
+                    КОНДИЦИОНЕРОВ
+                  </span>
+                </div>
+                <span className="text-[10px] text-slate-400 tracking-wider font-semibold uppercase mt-0.5">
+                  Климатические системы и монтаж
+                </span>
               </div>
             </Link>
             <p className="text-sm text-slate-400 max-w-md leading-relaxed">

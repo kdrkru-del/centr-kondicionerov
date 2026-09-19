@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCompare } from '@/context/CompareContext';
 import { PRODUCTS } from '@/data/products';
 import { Scale, X, ArrowRight, Trash2 } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 export const FloatingCompareBar: React.FC = () => {
   const {
@@ -73,7 +74,7 @@ export const FloatingCompareBar: React.FC = () => {
             >
               <div className="relative w-8 h-8 shrink-0 bg-white/10 rounded-lg overflow-hidden flex items-center justify-center">
                 <Image
-                  src={p!.image}
+                  src={getAssetUrl(p!.image)}
                   alt={p!.name}
                   width={32}
                   height={32}

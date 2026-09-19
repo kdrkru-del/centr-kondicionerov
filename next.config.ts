@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     ? {
         output: 'export',
         basePath: '/centr-kondicionerov',
+        env: {
+          NEXT_PUBLIC_BASE_PATH: '/centr-kondicionerov',
+        },
         images: {
           unoptimized: true,
         },

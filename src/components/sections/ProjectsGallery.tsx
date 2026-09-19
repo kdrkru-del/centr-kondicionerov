@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Camera, MapPin, Clock, ShieldCheck } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 export const ProjectsGallery: React.FC = () => {
   const projects = [
@@ -68,7 +69,7 @@ export const ProjectsGallery: React.FC = () => {
             >
               <div className="relative h-56 w-full bg-slate-200 overflow-hidden">
                 <Image
-                  src={item.image}
+                  src={getAssetUrl(item.image)}
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 80vw, 25vw"

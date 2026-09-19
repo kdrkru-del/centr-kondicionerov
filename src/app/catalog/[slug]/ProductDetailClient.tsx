@@ -24,6 +24,7 @@ import {
   Phone,
   ArrowRight
 } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 interface Props {
   product: Product;
@@ -281,7 +282,7 @@ export const ProductDetailClient: React.FC<Props> = ({ product, similarProducts 
               {/* Main Image */}
               <div className="relative w-full h-72 sm:h-96 lg:h-[400px]">
                 <Image
-                  src={selectedImage}
+                  src={getAssetUrl(selectedImage)}
                   alt={product.name}
                   fill
                   priority

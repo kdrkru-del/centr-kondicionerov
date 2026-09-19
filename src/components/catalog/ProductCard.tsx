@@ -16,6 +16,7 @@ import {
   MessageSquare,
   Check
 } from 'lucide-react';
+import { getAssetUrl } from '@/utils/asset';
 
 interface ProductCardProps {
   product: Product;
@@ -64,7 +65,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div className="relative w-full sm:w-48 h-40 shrink-0 bg-slate-50/70 rounded-2xl flex items-center justify-center p-3 border border-slate-100">
           <Link href={`/catalog/${product.slug}`} className="relative w-full h-full block">
             <Image
-              src={product.image}
+              src={getAssetUrl(product.image)}
               alt={product.name}
               fill
               sizes="(max-width: 640px) 100vw, 200px"
@@ -247,11 +248,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="relative pt-12 pb-3 px-6 bg-gradient-to-b from-slate-50/70 to-white flex items-center justify-center min-h-[190px] sm:min-h-[210px] group/img">
         <Link href={`/catalog/${product.slug}`} className="relative w-full h-40 sm:h-44 block focus:outline-none">
           <Image
-            src={product.image}
+            src={getAssetUrl(product.image)}
             alt={product.name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-contain transition-transform duration-300 group-hover:scale-105"
+            className="object-contain transition-transform duration-500 group-hover/img:scale-105"
           />
         </Link>
 
