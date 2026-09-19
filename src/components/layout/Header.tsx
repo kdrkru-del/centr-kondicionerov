@@ -26,31 +26,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Каталог с ценами', href: '/catalog', highlight: true },
+    { name: 'Каталог систем', href: '/catalog', highlight: true },
     { name: 'Калькулятор подбора', href: '/selection' },
-    { name: 'Монтаж под ключ', href: '/installation' },
+    { name: 'Стандарты монтажа', href: '/installation' },
     { name: 'Гарантия 4 года', href: '/#warranty' },
     { name: 'Контакты', href: '/#contacts' }
   ];
 
   const handleCtaClick = () => {
     if (onOpenModal) {
-      onOpenModal(undefined, 'Кнопка в шапке сайта');
+      onOpenModal(undefined, 'Кнопка в шапке сайта: Вызов инженера');
     }
     setMobileMenuOpen(false);
   };
 
   return (
     <>
-      {/* Top Pre-header Bar: Clean crisp luxury light bar */}
-      <div className="bg-slate-50 border-b border-slate-200/70 text-slate-600 text-[11px] sm:text-xs py-2 hidden md:block">
+      {/* 1. Верхняя сервисная строчка (Pre-header): Ювелирная светлая классика */}
+      <div className="bg-[#FAF9F6] border-b border-slate-200/60 text-slate-600 text-[11px] sm:text-xs py-2 hidden md:block tracking-normal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-1.5 text-slate-700 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+            <div className="flex items-center space-x-1.5 text-slate-800 font-medium">
+              <MapPin className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
               <span>{COMPANY_CONFIG.citiesListText}</span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 ml-1" />
-              <span className="text-[11px] text-emerald-600 font-semibold">Монтажные бригады на линии</span>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 ml-1.5 animate-pulse" />
+              <span className="text-[11px] text-emerald-700 font-semibold">Штатные монтажные бригады на линии</span>
             </div>
             <div className="flex items-center space-x-1.5 text-slate-500">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
@@ -60,17 +60,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-1.5 text-slate-700">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-              <span>Гарантия до 4 лет • Оплата по факту приёмки</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0062D2]" />
+              <span>Гарантия до 4 лет • Оплата после приёмки</span>
             </div>
             <div className="flex items-center space-x-3 pl-3 border-l border-slate-200">
               <a
                 href="https://wa.me/79147061161"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-emerald-600 transition flex items-center space-x-1 text-slate-700 font-medium"
+                className="hover:text-emerald-600 transition flex items-center space-x-1.5 text-slate-700 font-medium group"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition" />
                 <span>WhatsApp</span>
               </a>
             </div>
@@ -78,21 +78,22 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </div>
       </div>
 
-      {/* Main Luxury Light Header */}
+      {/* 2. Основная линия навигации (Header): Деликатное матовое стекло */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_25px_-4px_rgba(0,0,0,0.06)] border-b border-slate-200/80 py-3'
-            : 'bg-white/95 backdrop-blur-sm border-b border-slate-100 py-3.5 sm:py-4'
+            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_-6px_rgba(0,0,0,0.06)] border-b border-slate-200/80 py-3'
+            : 'bg-white/90 backdrop-blur-md border-b border-slate-200/60 py-3.5 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo with Pure SVG Icon + Premium Typography */}
+          
+          {/* Логотип: Лаконичный технологичный знак + благородный шрифт */}
           <div className="flex items-center space-x-3">
-            <Link href="/" className="flex items-center space-x-3 focus:outline-none group">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-blue-600 via-sky-500 to-blue-700 p-0.5 shadow-md shadow-blue-500/20 group-hover:scale-105 transition duration-300">
+            <Link href="/" className="flex items-center space-x-3.5 focus:outline-none group">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#0062D2] via-[#0284C7] to-[#38BDF8] p-[1.5px] shadow-sm shadow-blue-500/20 group-hover:scale-105 transition duration-300">
                 <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center relative overflow-hidden">
-                  <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-6 h-6 text-[#0062D2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04" />
                     <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
                   </svg>
@@ -103,18 +104,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                   <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">
                     ЦЕНТР
                   </span>
-                  <span className="text-base sm:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-sky-600 tracking-tight leading-none">
+                  <span className="text-base sm:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0062D2] to-sky-600 tracking-tight leading-none">
                     КОНДИЦИОНЕРОВ
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-400 tracking-wider font-semibold uppercase mt-0.5">
-                  Климатическая техника и монтаж
+                <span className="text-[10px] text-slate-500 tracking-widest font-semibold uppercase mt-1">
+                  Инженерные климатические системы
                 </span>
               </div>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Меню навигации */}
           <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -122,8 +123,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                 href={link.href}
                 className={`text-sm font-semibold transition tracking-tight ${
                   link.highlight
-                    ? 'text-blue-600 hover:text-blue-700'
-                    : 'text-slate-700 hover:text-blue-600'
+                    ? 'text-[#0062D2] hover:text-blue-700'
+                    : 'text-slate-700 hover:text-[#0062D2]'
                 }`}
               >
                 {link.name}
@@ -131,19 +132,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
             ))}
           </nav>
 
-          {/* Right contacts & CTA button */}
+          {/* Правый блок контактов и CTA */}
           <div className="hidden sm:flex items-center space-x-4">
-            {/* Quick favorites & compare links */}
+            {/* Быстрый доступ к Избранному и Сравнению со счетчиками */}
             <div className="flex items-center space-x-1.5">
               <Link
                 href="/catalog?fav=1"
-                className="p-2.5 rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50 border border-slate-200/80 transition relative flex items-center justify-center"
+                className="p-2.5 rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50/80 border border-slate-200/80 transition relative flex items-center justify-center"
                 title="Избранные модели"
                 aria-label="Избранное"
               >
                 <Heart className="w-4 h-4" />
                 {favorites.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
                     {favorites.length}
                   </span>
                 )}
@@ -151,25 +152,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
               <Link
                 href="/compare"
-                className="p-2.5 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-blue-50 border border-slate-200/80 transition relative flex items-center justify-center"
+                className="p-2.5 rounded-xl text-slate-500 hover:text-[#0062D2] hover:bg-blue-50/80 border border-slate-200/80 transition relative flex items-center justify-center"
                 title="Сравнение моделей"
                 aria-label="Сравнение"
               >
                 <Scale className="w-4 h-4" />
                 {compareCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white text-[10px] font-black flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#0062D2] text-white text-[10px] font-black flex items-center justify-center shadow-xs">
                     {compareCount}
                   </span>
                 )}
               </Link>
             </div>
 
+            {/* Прямой телефон с жирным начертанием */}
             <div className="text-right pl-3 border-l border-slate-200">
               <a
                 href="tel:+74232761161"
-                className="flex items-center space-x-1.5 text-sm sm:text-base font-black text-slate-900 hover:text-blue-600 transition tracking-tight"
+                className="flex items-center space-x-1.5 text-sm sm:text-base font-black text-slate-900 hover:text-[#0062D2] transition tracking-tight"
               >
-                <Phone className="w-3.5 h-3.5 text-blue-600" />
+                <Phone className="w-3.5 h-3.5 text-[#0062D2]" />
                 <span>+7 (4232) 76-11-61</span>
               </a>
               <div className="text-[11px] text-slate-500 font-medium">
@@ -177,28 +179,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
               </div>
             </div>
 
+            {/* Кнопка вызова инженера: статусный синий цвет #0062D2, скругление 12px, микро-отклик */}
             <button
               onClick={handleCtaClick}
-              className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs sm:text-sm font-bold rounded-xl transition shadow-md shadow-blue-500/20 flex items-center space-x-1.5 min-h-[42px]"
+              className="px-4 py-2.5 bg-[#0062D2] hover:bg-[#1D68BD] active:scale-[0.98] text-white text-xs sm:text-sm font-bold rounded-[12px] transition-all duration-200 shadow-md shadow-[#0062D2]/25 flex items-center space-x-1.5 min-h-[42px]"
             >
-              <Sparkles className="w-3.5 h-3.5 text-blue-100" />
-              <span>Подобрать</span>
+              <Sparkles className="w-3.5 h-3.5 text-sky-200" />
+              <span>Вызов инженера</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Мобильная кнопка меню */}
           <div className="flex sm:hidden items-center space-x-2">
             <a
               href="tel:+74232761161"
               aria-label="Позвонить"
-              className="p-2.5 text-slate-700 hover:text-blue-600 bg-slate-100 rounded-xl min-h-[42px] min-w-[42px] flex items-center justify-center"
+              className="p-2.5 text-slate-700 hover:text-[#0062D2] bg-slate-100 rounded-xl min-h-[42px] min-w-[42px] flex items-center justify-center"
             >
-              <Phone className="w-5 h-5 text-blue-600" />
+              <Phone className="w-5 h-5 text-[#0062D2]" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
-              className="p-2.5 text-slate-700 hover:text-blue-600 bg-slate-100 rounded-xl min-h-[42px] min-w-[42px] flex items-center justify-center focus:outline-none"
+              className="p-2.5 text-slate-700 hover:text-[#0062D2] bg-slate-100 rounded-xl min-h-[42px] min-w-[42px] flex items-center justify-center focus:outline-none"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -206,11 +209,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </div>
       </header>
 
-      {/* Mobile Drawer Menu */}
+      {/* Выдвижное мобильное меню */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="fixed top-16 right-0 left-0 bg-white border-b border-slate-200 p-6 shadow-2xl space-y-5 max-h-[85vh] overflow-y-auto">
-            <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+            <div className="text-xs font-bold text-[#0062D2] uppercase tracking-wider">
               Навигация
             </div>
             <div className="flex flex-col space-y-2">
@@ -219,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-semibold text-slate-800 hover:text-blue-600 py-2.5 border-b border-slate-100"
+                  className="text-base font-semibold text-slate-800 hover:text-[#0062D2] py-2.5 border-b border-slate-100"
                 >
                   {link.name}
                 </Link>
@@ -241,7 +244,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                   href="tel:+74232761161"
                   className="flex items-center justify-center space-x-2 py-3 bg-slate-100 text-slate-800 rounded-xl font-bold text-xs sm:text-sm min-h-[44px]"
                 >
-                  <Phone className="w-4 h-4 text-blue-600" />
+                  <Phone className="w-4 h-4 text-[#0062D2]" />
                   <span>Позвонить</span>
                 </a>
                 <a
@@ -257,9 +260,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
               <button
                 onClick={handleCtaClick}
-                className="w-full py-3.5 bg-blue-600 text-white font-bold rounded-xl text-center shadow-lg shadow-blue-500/25 min-h-[44px] text-sm"
+                className="w-full py-3.5 bg-[#0062D2] text-white font-bold rounded-[12px] text-center shadow-lg shadow-[#0062D2]/25 min-h-[44px] text-sm"
               >
-                Подобрать кондиционер
+                Вызов инженера
               </button>
             </div>
           </div>
