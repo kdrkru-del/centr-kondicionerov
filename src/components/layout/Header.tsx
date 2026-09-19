@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Логотип: Лаконичный технологичный знак + благородный шрифт */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center shrink-0 mr-6 xl:mr-10">
             <Link href="/" className="flex items-center space-x-3.5 focus:outline-none group">
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#0062D2] via-[#0284C7] to-[#38BDF8] p-[1.5px] shadow-sm shadow-blue-500/20 group-hover:scale-105 transition duration-300">
                 <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center relative overflow-hidden">
@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center space-x-1.5">
+                <div className="flex items-center space-x-1.5 whitespace-nowrap">
                   <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">
                     ЦЕНТР
                   </span>
@@ -108,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
                     КОНДИЦИОНЕРОВ
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-500 tracking-widest font-semibold uppercase mt-1">
+                <span className="text-[10px] text-slate-500 tracking-widest font-semibold uppercase mt-1 whitespace-nowrap">
                   Инженерные климатические системы
                 </span>
               </div>
@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
           </div>
 
           {/* Меню навигации */}
-          <nav className="hidden lg:flex items-center space-x-7 xl:space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 shrink-0">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
