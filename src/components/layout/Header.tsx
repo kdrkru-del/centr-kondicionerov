@@ -19,58 +19,58 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 15);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Каталог систем', href: '/catalog', highlight: true },
-    { name: 'Калькулятор подбора', href: '/selection' },
+    { name: 'Каталог сплит-систем', href: '/catalog', highlight: true },
+    { name: 'Инженерный расчёт', href: '/selection' },
     { name: 'Стандарты монтажа', href: '/installation' },
-    { name: 'Гарантия 4 года', href: '/#warranty' },
+    { name: 'Гарантия и сервис', href: '/#warranty' },
     { name: 'Контакты', href: '/#contacts' }
   ];
 
   const handleCtaClick = () => {
     if (onOpenModal) {
-      onOpenModal(undefined, 'Кнопка в шапке сайта: Вызов инженера');
+      onOpenModal(undefined, 'Кнопка в шапке сайта: Консультация инженера');
     }
     setMobileMenuOpen(false);
   };
 
   return (
     <>
-      {/* 1. Верхняя сервисная строчка (Pre-header): Ювелирная светлая классика */}
-      <div className="bg-[#FAF9F6] border-b border-slate-200/60 text-slate-600 text-[11px] sm:text-xs py-2 hidden md:block tracking-normal">
+      {/* 1. Верхняя фирменная статусная плашка (уровень мирового бренда Daikin) */}
+      <div className="bg-[#0B1528] text-slate-300 text-[11px] sm:text-xs py-2 hidden md:block border-b border-white/10 tracking-tight">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-1.5 text-slate-800 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-[#0062D2] shrink-0" />
+            <div className="flex items-center space-x-1.5 text-white font-medium">
+              <MapPin className="w-3.5 h-3.5 text-sky-400 shrink-0" />
               <span>{COMPANY_CONFIG.citiesListText}</span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 ml-1.5 animate-pulse" />
-              <span className="text-[11px] text-emerald-700 font-semibold">Штатные монтажные бригады на линии</span>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 ml-1.5 animate-pulse" />
+              <span className="text-[11px] text-emerald-400 font-semibold">Склад и монтажные бригады в наличии</span>
             </div>
-            <div className="flex items-center space-x-1.5 text-slate-500">
+            <div className="flex items-center space-x-1.5 text-slate-400">
               <Clock className="w-3.5 h-3.5 text-slate-400" />
-              <span>Ежедневно 8:00 – 21:00</span>
+              <span>Ежедневно 8:00 – 21:00 без выходных</span>
             </div>
           </div>
 
           <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-1.5 text-slate-700">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0062D2]" />
-              <span>Гарантия до 4 лет • Оплата после приёмки</span>
+            <div className="flex items-center space-x-1.5 text-slate-200 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+              <span>Официальная гарантия до 4 лет • Расчёт строго по факту сдачи</span>
             </div>
-            <div className="flex items-center space-x-3 pl-3 border-l border-slate-200">
+            <div className="flex items-center space-x-3 pl-3 border-l border-white/15">
               <a
                 href="https://wa.me/79147061161"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-emerald-600 transition flex items-center space-x-1.5 text-slate-700 font-medium group"
+                className="hover:text-emerald-400 transition flex items-center space-x-1.5 text-slate-200 font-medium group"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition" />
                 <span>WhatsApp</span>
               </a>
             </div>
@@ -78,52 +78,50 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         </div>
       </div>
 
-      {/* 2. Основная линия навигации (Header): Деликатное матовое стекло */}
+      {/* 2. Основная линия навигации (Daikin Corporate Clean Style) */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-40 transition-all duration-200 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_-6px_rgba(0,0,0,0.06)] border-b border-slate-200/80 py-3'
-            : 'bg-white/90 backdrop-blur-md border-b border-slate-200/60 py-3.5 sm:py-4'
+            ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-slate-200 py-3'
+            : 'bg-white border-b border-slate-200 py-3.5 sm:py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Логотип: Лаконичный технологичный знак + благородный шрифт */}
-          <div className="flex items-center shrink-0 mr-6 xl:mr-10">
+          {/* Корпоративный логотип: Четкий, технологичный, респектабельный */}
+          <div className="flex items-center shrink-0 mr-8">
             <Link href="/" className="flex items-center space-x-3.5 focus:outline-none group">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-[#0062D2] via-[#0284C7] to-[#38BDF8] p-[1.5px] shadow-sm shadow-blue-500/20 group-hover:scale-105 transition duration-300">
-                <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center relative overflow-hidden">
-                  <svg className="w-6 h-6 text-[#0062D2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04" />
-                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
-                  </svg>
-                </div>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#0062D2] flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:bg-[#004bb5] transition duration-200">
+                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04" />
+                  <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
+                </svg>
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center space-x-1.5 whitespace-nowrap">
-                  <span className="text-base sm:text-lg font-black text-slate-900 tracking-tight leading-none">
+                  <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-none">
                     ЦЕНТР
                   </span>
-                  <span className="text-base sm:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0062D2] to-sky-600 tracking-tight leading-none">
+                  <span className="text-lg sm:text-xl font-black text-[#0062D2] tracking-tight leading-none">
                     КОНДИЦИОНЕРОВ
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-500 tracking-widest font-semibold uppercase mt-1 whitespace-nowrap">
-                  Инженерные климатические системы
+                <span className="text-[10px] text-slate-500 tracking-[0.15em] font-bold uppercase mt-1 whitespace-nowrap">
+                  Климатическое оборудование и монтаж
                 </span>
               </div>
             </Link>
           </div>
 
           {/* Меню навигации */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 shrink-0">
+          <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9 shrink-0">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-semibold transition tracking-tight ${
+                className={`text-sm font-bold transition tracking-tight ${
                   link.highlight
-                    ? 'text-[#0062D2] hover:text-blue-700'
+                    ? 'text-[#0062D2] hover:text-blue-800'
                     : 'text-slate-700 hover:text-[#0062D2]'
                 }`}
               >
@@ -132,19 +130,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
             ))}
           </nav>
 
-          {/* Правый блок контактов и CTA */}
-          <div className="hidden sm:flex items-center space-x-4">
-            {/* Быстрый доступ к Избранному и Сравнению со счетчиками */}
-            <div className="flex items-center space-x-1.5">
+          {/* Правый блок контактов: чёткий, без нагромождения и сжатий */}
+          <div className="hidden sm:flex items-center space-x-4 shrink-0">
+            {/* Быстрые иконки избранного и сравнения */}
+            <div className="flex items-center space-x-1">
               <Link
                 href="/catalog?fav=1"
-                className="p-2.5 rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50/80 border border-slate-200/80 transition relative flex items-center justify-center"
+                className="p-2.5 rounded-xl text-slate-600 hover:text-red-500 hover:bg-slate-100 transition relative flex items-center justify-center"
                 title="Избранные модели"
                 aria-label="Избранное"
               >
                 <Heart className="w-4 h-4" />
                 {favorites.length > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center">
                     {favorites.length}
                   </span>
                 )}
@@ -152,40 +150,38 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
               <Link
                 href="/compare"
-                className="p-2.5 rounded-xl text-slate-500 hover:text-[#0062D2] hover:bg-blue-50/80 border border-slate-200/80 transition relative flex items-center justify-center"
+                className="p-2.5 rounded-xl text-slate-600 hover:text-[#0062D2] hover:bg-slate-100 transition relative flex items-center justify-center"
                 title="Сравнение моделей"
                 aria-label="Сравнение"
               >
                 <Scale className="w-4 h-4" />
                 {compareCount > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#0062D2] text-white text-[10px] font-black flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#0062D2] text-white text-[10px] font-black flex items-center justify-center">
                     {compareCount}
                   </span>
                 )}
               </Link>
             </div>
 
-            {/* Прямой телефон с жирным начертанием */}
+            {/* Блок телефона: чётко в одну строку с плашкой Владивосток */}
             <div className="text-right pl-3 border-l border-slate-200">
               <a
                 href="tel:+74232761161"
-                className="flex items-center space-x-1.5 text-sm sm:text-base font-black text-slate-900 hover:text-[#0062D2] transition tracking-tight"
+                className="text-base font-black text-slate-900 hover:text-[#0062D2] transition tracking-tight whitespace-nowrap block"
               >
-                <Phone className="w-3.5 h-3.5 text-[#0062D2]" />
-                <span>+7 (4232) 76-11-61</span>
+                +7 (4232) 76-11-61
               </a>
-              <div className="text-[11px] text-slate-500 font-medium">
+              <div className="text-[11px] text-slate-500 font-semibold whitespace-nowrap">
                 Владивосток • Без выходных
               </div>
             </div>
 
-            {/* Кнопка вызова инженера: статусный синий цвет #0062D2, скругление 12px, микро-отклик */}
+            {/* Кнопка вызова инженера: уверенный премиальный стиль Daikin */}
             <button
               onClick={handleCtaClick}
-              className="px-4 py-2.5 bg-[#0062D2] hover:bg-[#1D68BD] active:scale-[0.98] text-white text-xs sm:text-sm font-bold rounded-[12px] transition-all duration-200 shadow-md shadow-[#0062D2]/25 flex items-center space-x-1.5 min-h-[42px]"
+              className="px-5 py-2.5 bg-[#0062D2] hover:bg-[#004bb5] active:scale-[0.98] text-white text-sm font-bold rounded-lg transition-all duration-200 shadow-md shadow-[#0062D2]/25 flex items-center space-x-1.5 min-h-[42px] whitespace-nowrap"
             >
-              <Sparkles className="w-3.5 h-3.5 text-sky-200" />
-              <span>Вызов инженера</span>
+              <span>Консультация</span>
             </button>
           </div>
 
@@ -260,9 +256,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
 
               <button
                 onClick={handleCtaClick}
-                className="w-full py-3.5 bg-[#0062D2] text-white font-bold rounded-[12px] text-center shadow-lg shadow-[#0062D2]/25 min-h-[44px] text-sm"
+                className="w-full py-3.5 bg-[#0062D2] text-white font-bold rounded-lg text-center shadow-lg shadow-[#0062D2]/25 min-h-[44px] text-sm"
               >
-                Вызов инженера
+                Получить консультацию инженера
               </button>
             </div>
           </div>
