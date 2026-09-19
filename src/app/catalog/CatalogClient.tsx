@@ -12,6 +12,7 @@ import { QuickViewModal } from '@/components/catalog/QuickViewModal';
 import { MobileFiltersSheet } from '@/components/catalog/MobileFiltersSheet';
 import { useModal } from '@/components/providers/ModalProvider';
 import { useFavorites } from '@/context/FavoritesContext';
+import { getAssetUrl } from '@/utils/asset';
 import {
   Search,
   SlidersHorizontal,
@@ -894,10 +895,7 @@ export const CatalogClient: React.FC = () => {
         <div className="mt-16 pt-12 border-t border-slate-200/80">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600">
-                Производители
-              </span>
-              <h2 className="text-2xl font-black text-[#0B1F33] tracking-tight mt-0.5">
+              <h2 className="text-2xl font-black text-[#0B1F33] tracking-tight">
                 Выберите бренд
               </h2>
             </div>
@@ -916,7 +914,7 @@ export const CatalogClient: React.FC = () => {
                 <div>
                   <div className="relative h-10 w-full mb-3 flex items-center justify-center">
                     <Image
-                      src={b.logo}
+                      src={getAssetUrl(b.logo)}
                       alt={b.name}
                       fill
                       className="object-contain"
