@@ -53,26 +53,28 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Корпоративный логотип: Четкий, технологичный, респектабельный */}
-          <div className="flex items-center shrink-0 mr-8">
-            <Link href="/" className="flex items-center space-x-3.5 focus:outline-none group">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#0062D2] flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:bg-[#004bb5] transition duration-200">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="flex items-center shrink-0 mr-4 sm:mr-8 min-w-0">
+            <Link href="/" className="flex items-center space-x-2.5 sm:space-x-3.5 focus:outline-none group">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-[#0062D2] flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:bg-[#004bb5] transition duration-200 shrink-0">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04" />
                   <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04" />
                 </svg>
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center space-x-1.5 whitespace-nowrap">
-                  <span className="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-none">
+              <div className="flex flex-col min-w-0">
+                <div className="flex items-center space-x-1 sm:space-x-1.5 whitespace-nowrap">
+                  <span className="text-sm xs:text-base sm:text-xl font-black text-slate-900 tracking-tight leading-none">
                     ЦЕНТР
                   </span>
-                  <span className="text-lg sm:text-xl font-black text-[#0062D2] tracking-tight leading-none">
+                  <span className="text-sm xs:text-base sm:text-xl font-black text-[#0062D2] tracking-tight leading-none">
                     КОНДИЦИОНЕРОВ
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-500 tracking-[0.15em] font-bold uppercase mt-1 whitespace-nowrap">
-                  Климатическое оборудование и монтаж
-                </span>
+                {/* Подпись: в две строчки на мобильных устройствах, в одну на планшетах и ПК */}
+                <div className="text-[9px] sm:text-[10px] text-slate-500 font-bold uppercase tracking-tight sm:tracking-[0.15em] mt-0.5 sm:mt-1 leading-tight sm:leading-normal">
+                  <span className="block sm:inline">Климатическое оборудование</span>{' '}
+                  <span className="block sm:inline sm:before:content-[''] text-slate-400 sm:text-slate-500">и монтаж</span>
+                </div>
               </div>
             </Link>
           </div>
