@@ -6,9 +6,9 @@ const nextConfig: NextConfig = {
   ...(isGhPages
     ? {
         output: 'export',
-        basePath: '/centr-kondicionerov',
+        basePath: '',
         env: {
-          NEXT_PUBLIC_BASE_PATH: '/centr-kondicionerov',
+          NEXT_PUBLIC_BASE_PATH: '',
         },
         images: {
           unoptimized: true,
