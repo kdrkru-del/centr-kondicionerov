@@ -102,7 +102,7 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B1F33]/70 backdrop-blur-sm animate-fadeIn overflow-y-auto">
       <div 
-        className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 my-8"
+        className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 my-auto max-h-[90dvh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -125,7 +125,7 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
             </div>
             <h3 className="text-2xl font-bold text-slate-900 mb-2">Заявка принята!</h3>
             <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
-              Спасибо за обращение! Наш специалист уже получил уведомление и свяжется с вами в течение 10 минут.
+              Спасибо за обращение! Наш специалист уже получил уведомление и свяжется с вами по указанному номеру.
             </p>
             <div className="bg-slate-50 p-4 rounded-2xl text-left text-xs sm:text-sm text-slate-600 mb-6">
               <div className="font-semibold text-slate-800 mb-1">Что произойдет дальше:</div>

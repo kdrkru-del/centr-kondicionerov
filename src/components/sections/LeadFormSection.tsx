@@ -100,8 +100,8 @@ export const LeadFormSection: React.FC = () => {
                       href={`mailto:${COMPANY_CONFIG.email}`}
                       className="text-sm text-slate-200 hover:text-blue-400 flex items-center space-x-2 transition mt-0.5"
                     >
-                      <Mail className="w-4 h-4 text-blue-400" />
-                      <span>{COMPANY_CONFIG.email}</span>
+                      <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                      <span className="break-all">{COMPANY_CONFIG.email}</span>
                     </a>
                   </div>
 

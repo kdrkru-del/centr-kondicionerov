@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-slate-800/80 rounded-lg text-xs text-slate-300">
                 <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
-                <span>0 ₽ предоплата за работу</span>
+                <span>Оплата после выполнения</span>
               </div>
             </div>
           </div>
@@ -145,8 +145,8 @@ export const Footer: React.FC = () => {
                   href="mailto:centrkondicionerov@gmail.com"
                   className="hover:text-blue-400 flex items-center space-x-2 transition text-xs"
                 >
-                  <Mail className="w-4 h-4 text-blue-400" />
-                  <span>centrkondicionerov@gmail.com</span>
+                  <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span className="break-all">centrkondicionerov@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start space-x-2 text-xs">
