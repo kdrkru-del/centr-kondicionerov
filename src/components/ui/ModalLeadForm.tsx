@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ModalProductData } from '@/components/providers/ModalProvider';
 import { Wrench } from 'lucide-react';
 import { getAssetUrl } from '@/utils/asset';
+import { sendLead } from '@/lib/submitLead';
 
 interface ModalLeadFormProps {
   isOpen: boolean;
@@ -63,37 +64,30 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim() || undefined,
-          phone,
-          productName: productData?.name || productName,
-          productId: productData?.id,
-          slug: productData?.slug,
-          itemType: productData?.itemType,
-          brand: productData?.brand,
-          series: productData?.series,
-          model: productData?.model,
-          price: productData?.price,
-          priceWithInstallation: productData?.priceWithInstallation,
-          sourcePage: productData?.sourcePage,
-          source,
-          city
-        })
+      const result = await sendLead({
+        name: name.trim() || undefined,
+        phone,
+        productName: productData?.name || productName,
+        productId: productData?.id,
+        slug: productData?.slug,
+        itemType: productData?.itemType,
+        brand: productData?.brand,
+        series: productData?.series,
+        model: productData?.model,
+        price: productData?.price,
+        priceWithInstallation: productData?.priceWithInstallation,
+        sourcePage: productData?.sourcePage,
+        source,
+        city
       });
 
-      if (!res.ok) {
-        throw new Error('Ошибка отправки');
+      if (!result.ok) {
+        throw new Error(result.error || 'Ошибка отправки');
       }
 
       setIsSuccess(true);
-      if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(101376260, 'reachGoal', 'lead_submit');
-      }
-    } catch {
-      setError('Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую или попробуйте снова.');
+    } catch (err: any) {
+      setError(err?.message || 'Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую или попробуйте снова.');
     } finally {
       setIsSubmitting(false);
     }

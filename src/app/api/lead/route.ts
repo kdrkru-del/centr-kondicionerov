@@ -1,5 +1,6 @@
-﻿import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { COMPANY_CONFIG } from '@/config/company';
 
 export async function POST(request: Request) {
   try {
@@ -31,8 +32,8 @@ export async function POST(request: Request) {
     }
 
     const leadName = (name || '').trim() || 'Не указано';
-    const recipientEmail = process.env.LEAD_TO_EMAIL || 'centrkondicionerov@gmail.com';
-    const siteUrl = 'https://кондиционеры-владивосток.рф';
+    const recipientEmail = process.env.LEAD_TO_EMAIL || COMPANY_CONFIG.email;
+    const siteUrl = 'https://центр-кондиционеров.рф';
     const pageUrl = sourcePage ? `${siteUrl}${sourcePage}` : siteUrl;
 
     const formattedPrice = price

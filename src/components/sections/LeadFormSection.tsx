@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageSquare, Send, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { COMPANY_CONFIG } from '@/config/company';
+import { sendLead } from '@/lib/submitLead';
 
 export const LeadFormSection: React.FC = () => {
   const [name, setName] = useState('');
@@ -35,28 +36,21 @@ export const LeadFormSection: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name.trim() || undefined,
-          phone,
-          type: 'home-selection',
-          sourcePage: '/',
-          source: 'Финальная форма на главной'
-        })
+      const result = await sendLead({
+        name: name.trim() || undefined,
+        phone,
+        productName: 'Подбор сплит-системы под ключ (главная)',
+        sourcePage: '/',
+        source: 'Финальная форма на главной'
       });
 
-      if (!res.ok) {
-        throw new Error('Ошибка сервера при отправке заявки');
+      if (!result.ok) {
+        throw new Error(result.error || 'Ошибка отправки заявки');
       }
 
       setIsSuccess(true);
-      if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(101376260, 'reachGoal', 'lead_submit');
-      }
-    } catch {
-      setError('Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую или попробуйте снова.');
+    } catch (err: any) {
+      setError(err?.message || 'Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую или попробуйте снова.');
     } finally {
       setIsSubmitting(false);
     }
