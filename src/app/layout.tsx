@@ -32,13 +32,24 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero/air-conditioner-hero.png',
+        url: '/images/hero/daikin-flagship-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'Центр кондиционеров - продажа и установка во Владивостоке'
       }
     ]
-  }
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +61,8 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <StructuredData type="localBusiness" />
       </head>
       <body>

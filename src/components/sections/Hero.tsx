@@ -99,16 +99,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
 
           </div>
 
-          {/* Right Column: Neutral Premium AC Render (5 cols on lg/xl, min-w-0, object-contain) */}
+          {/* Right Column: Hero Visual with airflow on light blue background (5 cols on lg/xl, min-w-0) */}
           <div className="lg:col-span-5 min-w-0 flex items-center justify-center relative">
-            <div className="relative w-full aspect-[4/3] max-h-[360px] sm:max-h-[420px] lg:max-h-[460px]">
+            <div className="relative w-full aspect-[16/10] sm:aspect-[16/10] lg:aspect-[4/3] max-h-[380px] sm:max-h-[440px] lg:max-h-[500px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/80">
               <Image
-                src={getAssetUrl('/images/hero/air-conditioner-hero.png')}
-                alt="Настенная сплит-система"
+                src={getAssetUrl('/images/hero/daikin-flagship-hero.jpg')}
+                alt="Настенная сплит-система с установкой"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-contain drop-shadow-xl"
+                className="object-cover object-[center_right]"
               />
             </div>
           </div>
