@@ -161,15 +161,24 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom row: copyright & requisites */}
+        {/* Bottom row: copyright & links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>
             © {new Date().getFullYear()} Центр Кондиционеров. Все права защищены. Продажа и установка климатической техники во Владивостоке.
           </div>
-          <div className="flex flex-wrap gap-4">
-            <span>ОГРНИП / ИНН компании</span>
-            <span>Политика конфиденциальности</span>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <Link href="/privacy" className="hover:text-blue-400 transition underline underline-offset-4 decoration-slate-700 hover:decoration-blue-400">
+              Политика конфиденциальности
+            </Link>
             <span>Не является публичной офертой</span>
+            <a
+              href="https://voltrena.ru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-400 transition"
+            >
+              Создание и продвижение — <span className="font-semibold text-slate-300 hover:text-white">voltrena.ru</span>
+            </a>
           </div>
         </div>
       </div>
