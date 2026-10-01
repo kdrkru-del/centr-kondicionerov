@@ -8,6 +8,7 @@ import { sendLead } from '@/lib/submitLead';
 export const LeadFormSection: React.FC = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [website, setWebsite] = useState(''); // honeypot
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -41,7 +42,8 @@ export const LeadFormSection: React.FC = () => {
         phone,
         productName: 'Подбор сплит-системы под ключ (главная)',
         sourcePage: '/',
-        source: 'Финальная форма на главной'
+        source: 'Финальная форма на главной',
+        website: website.trim() || undefined,
       });
 
       if (!result.ok) {
@@ -199,6 +201,18 @@ export const LeadFormSection: React.FC = () => {
                       />
                     </div>
 
+                    {/* Honeypot anti-spam field (hidden from real users, caught by bots) */}
+                    <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </div>
+
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                         Номер телефона <span className="text-red-500">*</span>
@@ -213,7 +227,11 @@ export const LeadFormSection: React.FC = () => {
                         onChange={(e) => setPhone(formatPhone(e.target.value))}
                         className="w-full px-4 py-3.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-slate-900 font-medium"
                       />
-                      {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+                      {error && (
+                        <div className="p-3 mt-2 rounded-xl bg-red-50 border border-red-200 text-xs font-semibold text-red-600 leading-relaxed">
+                          {error}
+                        </div>
+                      )}
                     </div>
 
                     <div className="pt-2">

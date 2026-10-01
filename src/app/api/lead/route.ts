@@ -2,6 +2,24 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { COMPANY_CONFIG } from '@/config/company';
 
+// In-memory rate limiting for Node.js / Docker production runtime
+const rateLimitMap = new Map<string, { count: number; firstSeen: number; lastSeen: number }>();
+const CLEANUP_INTERVAL_MS = 15 * 60 * 1000;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 5;
+
+// Periodically clean stale records
+if (typeof setInterval !== 'undefined') {
+  setInterval(() => {
+    const now = Date.now();
+    for (const [key, value] of rateLimitMap.entries()) {
+      if (now - value.lastSeen > RATE_LIMIT_WINDOW_MS) {
+        rateLimitMap.delete(key);
+      }
+    }
+  }, CLEANUP_INTERVAL_MS).unref?.();
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -19,16 +37,60 @@ export async function POST(request: Request) {
       priceWithInstallation,
       quizData,
       area,
-      city
+      city,
+      website,
     } = body;
+
+    // Honeypot bot protection
+    if (website && String(website).trim().length > 0) {
+      console.warn('[SPAM BLOCKED]: Honeypot field was filled');
+      // Return 200 OK so bots think they succeeded and stop retrying
+      return NextResponse.json({ success: true, message: 'Заявка принята' });
+    }
 
     // Validate phone
     const cleanDigits = (phone || '').replace(/\D/g, '');
     if (!phone || cleanDigits.length < 10) {
       return NextResponse.json(
-        { success: false, message: 'Некорректный номер телефона' },
+        { success: false, message: 'Некорректный номер телефона (не менее 10 цифр)' },
         { status: 400 }
       );
+    }
+
+    // Rate limiting key: IP address + phone digits
+    const forwardedFor = request.headers.get('x-forwarded-for') || '';
+    const clientIp = forwardedFor.split(',')[0].trim() || 'unknown';
+    const rateLimitKey = `${clientIp}_${cleanDigits}`;
+
+    const now = Date.now();
+    const record = rateLimitMap.get(rateLimitKey);
+
+    if (record) {
+      // Cooldown check: at least 10 seconds between requests
+      if (now - record.lastSeen < 10 * 1000) {
+        return NextResponse.json(
+          { success: false, message: 'Пожалуйста, подождите несколько секунд перед следующей отправкой.' },
+          { status: 429 }
+        );
+      }
+
+      if (now - record.firstSeen < RATE_LIMIT_WINDOW_MS) {
+        if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+          return NextResponse.json(
+            {
+              success: false,
+              message: 'Превышен лимит отправки заявок. Пожалуйста, подождите или позвоните нам по телефону.',
+            },
+            { status: 429 }
+          );
+        }
+        record.count += 1;
+        record.lastSeen = now;
+      } else {
+        rateLimitMap.set(rateLimitKey, { count: 1, firstSeen: now, lastSeen: now });
+      }
+    } else {
+      rateLimitMap.set(rateLimitKey, { count: 1, firstSeen: now, lastSeen: now });
     }
 
     const leadName = (name || '').trim() || 'Не указано';
