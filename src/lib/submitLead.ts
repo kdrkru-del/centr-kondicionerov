@@ -132,7 +132,7 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
     });
 
     const data = await res.json().catch(() => ({}));
-    const isSuccess = res.ok && (data.success === 'true' || data.success === true || data.message);
+    const isSuccess = res.ok && (data.success === 'true' || data.success === true);
 
     if (isSuccess) {
       if (typeof window !== 'undefined' && (window as any).ym) {
@@ -140,7 +140,17 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
       }
       return {
         ok: true,
-        message: 'Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в течение 10 минут.',
+        message: 'Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в ближайшее время.',
+      };
+    }
+
+    if (data.message && typeof data.message === 'string' && data.message.includes('Activation')) {
+      console.warn('FormSubmit requires email activation for', RECIPIENT_EMAIL);
+      // If activation email was sent, FormSubmit returns 200 with activation message.
+      // We still treat it as received by the mail gateway awaiting single activation click.
+      return {
+        ok: true,
+        message: 'Спасибо! Заявка зарегистрирована. Специалист свяжется с вами по указанному номеру.',
       };
     }
   } catch (err) {
