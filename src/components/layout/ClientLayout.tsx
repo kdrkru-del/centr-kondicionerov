@@ -14,11 +14,13 @@ const LayoutContent: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const { openModal } = useModal();
 
   const handleOpenQuiz = () => {
-    const el = document.getElementById('quiz');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      openModal(undefined, 'Нижняя мобильная панель');
+    if (typeof window !== 'undefined') {
+      const areaEl = document.getElementById('area-selection');
+      if (areaEl) {
+        areaEl.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      window.location.href = '/selection';
     }
   };
 

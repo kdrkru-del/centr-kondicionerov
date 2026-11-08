@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MessageSquare } from 'lucide-react';
 import { getAssetUrl } from '@/utils/asset';
 
 interface HeroProps {
@@ -51,6 +51,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
           </p>
 
           {/* Action CTA Buttons directly after Subtitle */}
+          <div className="flex flex-wrap items-center gap-2 pt-1 text-xs font-bold text-slate-700">
+            <span className="bg-amber-100 text-amber-900 px-3 py-1 rounded-lg">Сплит-системы от 18 900 ₽</span>
+            <span className="bg-blue-100 text-blue-900 px-3 py-1 rounded-lg">Установка от 10 000 ₽</span>
+            <span className="bg-emerald-100 text-emerald-900 px-3 py-1 rounded-lg">Оплата по факту монтажа</span>
+          </div>
+
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
             <button
               type="button"
@@ -61,11 +67,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
               <ArrowRight className="w-4 h-4 text-white" />
             </button>
 
+            <a
+              href="https://wa.me/79147061161?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%D1%83%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0%20%D1%81%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%BE%D0%B9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 sm:px-7 py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-emerald-500/25 transition-all duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base min-h-[48px] sm:min-h-[52px]"
+            >
+              <MessageSquare className="w-4 h-4 text-white" />
+              <span>Расчёт в WhatsApp</span>
+            </a>
+
             <Link
               href="/catalog"
-              className="px-5 sm:px-7 py-3.5 sm:py-4 bg-white hover:bg-slate-50 active:scale-[0.99] text-slate-800 font-bold rounded-xl border border-slate-300 hover:border-slate-400 shadow-2xs transition flex items-center justify-center space-x-2 text-sm sm:text-base min-h-[48px] sm:min-h-[52px]"
+              className="px-5 sm:px-6 py-3.5 sm:py-4 bg-white hover:bg-slate-50 active:scale-[0.99] text-slate-800 font-bold rounded-xl border border-slate-300 hover:border-slate-400 shadow-2xs transition flex items-center justify-center space-x-2 text-sm sm:text-base min-h-[48px] sm:min-h-[52px]"
             >
-              <span>Смотреть каталог</span>
+              <span>Каталог</span>
             </Link>
           </div>
 

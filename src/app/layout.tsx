@@ -3,6 +3,7 @@ import './globals.css';
 import { ClientLayout } from '@/components/layout/ClientLayout';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { YandexMetrika } from '@/components/analytics/YandexMetrika';
+import { CookieBanner } from '@/components/ui/CookieBanner';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://кондиционеры-владивосток.рф'),
@@ -63,11 +64,18 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__ANTIFRAUD_COUNTER_ID = 101376260;`,
+          }}
+        />
         <StructuredData type="localBusiness" />
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
         <YandexMetrika />
+        <CookieBanner />
+        <script src="/antifraud-sensor.js" data-counter="101376260" defer />
       </body>
     </html>
   );

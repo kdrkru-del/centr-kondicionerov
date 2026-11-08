@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ModalProductData } from '@/components/providers/ModalProvider';
-import { Wrench } from 'lucide-react';
+import { Wrench, MessageSquare } from 'lucide-react';
 import { getAssetUrl } from '@/utils/asset';
 import { sendLead } from '@/lib/submitLead';
+import { reachGoal } from '@/components/analytics/YandexMetrika';
 
 interface ModalLeadFormProps {
   isOpen: boolean;
@@ -34,6 +35,12 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      reachGoal('form_open', { productName: productData?.name || productName, source });
+    }
+  }, [isOpen, productName, source, productData]);
 
   if (!isOpen) return null;
 
@@ -249,7 +256,7 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-bold rounded-xl transition shadow-lg shadow-blue-500/25 flex items-center justify-center space-x-2 disabled:opacity-70 text-sm sm:text-base"
+                  className="w-full py-3.5 px-6 bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-bold rounded-xl transition shadow-lg shadow-blue-500/25 flex items-center justify-center space-x-2 disabled:opacity-70 text-sm sm:text-base cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span className="inline-flex items-center">
@@ -263,6 +270,22 @@ export const ModalLeadForm: React.FC<ModalLeadFormProps> = ({
                     <span>Заказать с установкой</span>
                   )}
                 </button>
+              </div>
+
+              {/* WhatsApp direct alternative */}
+              <div className="pt-2 text-center">
+                <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                  Или напишите сразу в WhatsApp
+                </div>
+                <a
+                  href="https://wa.me/79147061161?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%D1%83%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-4 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-xl border border-emerald-200 transition flex items-center justify-center space-x-2 text-xs sm:text-sm"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  <span>Написать специалисту в WhatsApp</span>
+                </a>
               </div>
 
               <p className="text-center text-[11px] text-slate-400 leading-tight pt-1">

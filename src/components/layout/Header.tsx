@@ -129,15 +129,41 @@ export const Header: React.FC<HeaderProps> = ({ onOpenModal }) => {
             </div>
 
             {/* Блок прямого телефона (на экранах >= 640px) */}
-            <div className="hidden sm:block text-right pl-3 border-l border-slate-200">
-              <a
-                href="tel:+74232761161"
-                className="text-sm lg:text-base font-black text-slate-900 hover:text-[#0062D2] transition tracking-tight whitespace-nowrap block"
-              >
-                +7 (4232) 76-11-61
-              </a>
-              <div className="text-[10px] text-slate-500 font-semibold whitespace-nowrap">
-                Владивосток • Без выходных
+            <div className="hidden sm:flex items-center space-x-2 pl-3 border-l border-slate-200">
+              <div className="text-right">
+                <a
+                  href="tel:+74232761161"
+                  className="text-sm lg:text-base font-black text-slate-900 hover:text-[#0062D2] transition tracking-tight whitespace-nowrap block"
+                >
+                  +7 (4232) 76-11-61
+                </a>
+                <div className="text-[10px] text-slate-500 font-semibold whitespace-nowrap">
+                  Владивосток • Без выходных
+                </div>
+              </div>
+              <div className="flex items-center space-x-1 pl-1">
+                <a
+                  href="https://wa.me/79147061161?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B4%D0%B1%D0%BE%D1%80%D1%83%20%D0%BA%D0%BE%D0%BD%D0%B4%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D0%B0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-600 flex items-center justify-center transition"
+                  title="Написать в WhatsApp"
+                  aria-label="WhatsApp"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://t.me/+79147061161"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-600 flex items-center justify-center transition"
+                  title="Написать в Telegram"
+                  aria-label="Telegram"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                  </svg>
+                </a>
               </div>
             </div>
 

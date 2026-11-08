@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { COMPANY_CONFIG } from '@/config/company';
-import { ShieldCheck, ArrowLeft, Lock, FileText, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, ArrowLeft, Lock, Building2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Политика конфиденциальности и обработки персональных данных | Центр Кондиционеров',
-  description: 'Официальная политика обработки и защиты персональных данных пользователей сайта компании Центр Кондиционеров (Владивосток) в соответствии с ФЗ №152-ФЗ.',
+  description: 'Официальная политика обработки и защиты персональных данных пользователей сайта компании Центр Кондиционеров (ООО «Окна-Центр») в соответствии с ФЗ №152-ФЗ.',
   robots: {
     index: true,
     follow: true,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-slate-50 min-h-screen py-10 sm:py-16">
+    <div className="bg-slate-50 min-h-screen py-10 sm:py-16 text-slate-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
                 Политика конфиденциальности и обработки персональных данных
               </h1>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Редакция от {new Date().getFullYear()} г. | Соответствует требованиям Федерального закона РФ № 152-ФЗ «О персональных данных»
+                Утверждена Генеральным директором ООО «Окна-Центр» Кошовенко Д. С. | Действует с 1 сентября 2025 г.
               </p>
             </div>
           </div>
@@ -48,158 +48,112 @@ export default function PrivacyPage() {
             <Lock className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
             <p>
               Настоящая Политика определяет порядок и условия обработки персональных данных, собираемых через сайт{' '}
-              <span className="font-semibold text-slate-900">центр-кондиционеров.рф</span>, а также устанавливает меры по обеспечению безопасности и защите конфиденциальной информации наших клиентов.
+              <span className="font-semibold text-slate-900">центр-кондиционеров.рф</span> (и домен <code>centr-kondicionerov.ru</code>), а также устанавливает меры по обеспечению безопасности и защите конфиденциальной информации клиентов <strong>ООО «Окна-Центр»</strong> (ИНН 2543168553) в соответствии с требованиями 152-ФЗ РФ.
             </p>
           </div>
         </div>
 
         {/* Content Block */}
-        <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 prose prose-slate max-w-none text-xs sm:text-sm text-slate-600 leading-relaxed space-y-6">
+        <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200/80 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-6">
           
           <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>1. Общие положения</span>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              1. Общие положения
             </h2>
-            <p>
-              1.1. Настоящая Политика в отношении обработки персональных данных (далее — «Политика») подготовлена в строгом соответствии с п. 2 ч. 1 ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и действует в отношении всей информации, которую компания «Центр Кондиционеров» (далее — «Оператор») может получить о Пользователе во время использования им интернет-сайта{' '}
-              <a href="https://центр-кондиционеров.рф" className="text-blue-600 font-medium hover:underline">
-                https://центр-кондиционеров.рф
-              </a>.
+            <p className="mb-2">
+              1.1. Настоящая Политика в отношении обработки персональных данных (далее — «Политика») подготовлена в строгом соответствии с п. 2 ч. 1 ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных».
+            </p>
+            <p className="mb-2">
+              1.2. <strong>Оператор персональных данных:</strong> {COMPANY_CONFIG.legalName} ({COMPANY_CONFIG.shortLegalName}), ОГРН {COMPANY_CONFIG.ogrn}, ИНН {COMPANY_CONFIG.inn}, КПП {COMPANY_CONFIG.kpp}. Юридический адрес: {COMPANY_CONFIG.legalAddress}.
             </p>
             <p>
-              1.2. Использование сервисов сайта, отправка контактных форм, заявок на расчет стоимости, обратного звонка и консультацию означает безоговорочное согласие Пользователя с настоящей Политикой и указанными в ней условиями обработки его персональных данных. В случае несогласия с этими условиями Пользователь должен воздержаться от использования форм обратной связи на сайте.
+              1.3. Обработка персональных данных осуществляется с согласия Пользователя, предоставляемого путем осознанной установки отдельного флажка (чекбокса) в формах сайта, либо в целях заключения договора по инициативе субъекта (п. 5 ч. 1 ст. 6 152-ФЗ).
             </p>
           </section>
 
           <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>2. Основные понятия</span>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              2. Цели сбора и состав обрабатываемых данных
             </h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <strong>Персональные данные</strong> — любая информация, относящаяся прямо или косвенно к определенному или определяемому физическому лицу (субъекту персональных данных).
-              </li>
-              <li>
-                <strong>Оператор</strong> — компания «Центр Кондиционеров», самостоятельно организующая и осуществляющая обработку персональных данных, а также определяющая цели обработки, состав данных и действия, совершаемые с ними.
-              </li>
-              <li>
-                <strong>Обработка персональных данных</strong> — любое действие (операция) или совокупность действий, совершаемых с использованием средств автоматизации или без таковых, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу, обезличивание, блокирование, удаление и уничтожение.
-              </li>
-              <li>
-                <strong>Конфиденциальность персональных данных</strong> — обязательное для соблюдения Оператором требование не допускать распространения персональных данных без согласия субъекта или наличия иного законного основания.
-              </li>
+            <p className="mb-2">Персональные данные собираются исключительно для следующих законных целей:</p>
+            <ul className="list-disc pl-5 space-y-1.5">
+              <li>Подбор модели кондиционера или сплит-системы по параметрам помещения;</li>
+              <li>Расчет предварительной стоимости оборудования с учетом стандартного или индивидуального монтажа;</li>
+              <li>Связь с заказчиком для согласования времени бесплатного выезда специалиста на осмотр трассы и монтаж;</li>
+              <li>Заключение договора купли-продажи, оформление гарантийного талона (до 4 лет гарантии) и сервисного обслуживания.</li>
             </ul>
-          </section>
-
-          <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>3. Состав обрабатываемых персональных данных</span>
-            </h2>
-            <p>
-              3.1. Оператор обрабатывает следующие категории данных, предоставляемых Пользователем добровольно при заполнении форм на сайте:
-            </p>
+            <p className="mt-3 mb-1 font-semibold text-slate-800">Состав данных:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Имя Пользователя или контактного лица;</li>
-              <li>Номер контактного мобильного/городского телефона;</li>
-              <li>Адрес электронной почты (e-mail), если указан Пользователем;</li>
-              <li>Адрес предполагаемого объекта монтажа оборудования (город, улица, дом/квартира);</li>
-              <li>Технические характеристики помещения (площадь, тип стен, этажность), необходимые для расчета требуемой мощности оборудования.</li>
+              <li>Имя (или имя контактного лица);</li>
+              <li>Номер мобильного телефона;</li>
+              <li>Населенный пункт (Владивосток, Артём, Уссурийск и др.);</li>
+              <li>Параметры подбора (площадь, бренд, тип сплит-системы);</li>
+              <li>Технические метаданные (IP-адрес, дата и время отправки, UTM-метки рекламной кампании).</li>
             </ul>
-            <p>
-              3.2. На сайте также осуществляется сбор и обработка обезличенных данных о посетителях (в т.ч. файлов «cookie», IP-адрес, данные об операционной системе и браузере) с помощью сервисов интернет-статистики (Яндекс.Метрика и др.) в целях оптимизации работы интерфейса и анализа посещаемости.
+          </section>
+
+          <section>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              3. Локализация баз данных в РФ (ч. 5 ст. 18 152-ФЗ)
+            </h2>
+            <p className="mb-2">
+              Оператор гарантирует, что запись, систематизация, накопление, хранение, уточнение и извлечение персональных данных граждан РФ производятся с использованием баз данных, физически расположенных на территории Российской Федерации.
             </p>
           </section>
 
           <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>4. Цели обработки персональных данных</span>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              4. Сроки обработки и уничтожение персональных данных
             </h2>
-            <p>
-              Обработка персональных данных Пользователя ограничивается достижением конкретных, заранее определенных и законных целей:
+            <p className="mb-2">
+              Персональные данные хранятся в течение срока, необходимого для достижения целей обработки (подбор оборудования, монтаж, срок действия гарантии), либо до момента отзыва согласия субъектом. При отзыве согласия данные подлежат уничтожению в срок, не превышающий 30 календарных дней (ст. 21 152-ФЗ).
             </p>
+          </section>
+
+          <section>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              5. Права субъекта персональных данных
+            </h2>
+            <p className="mb-2">Субъект персональных данных имеет право:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Предоставление персональной консультации по подбору климатического оборудования;</li>
-              <li>Точный инженерный расчет мощности сплит-систем и сметной стоимости монтажных работ;</li>
-              <li>Согласование времени выезда инженера-замерщика и монтажной бригады;</li>
-              <li>Исполнение договоров поставки, монтажа и гарантийного сервисного обслуживания техники;</li>
-              <li>Обратная связь с клиентом для контроля качества выполненных работ и оперативного сервиса.</li>
+              <li>Запрашивать сведения о порядке и основаниях обработки своих данных;</li>
+              <li>Требовать уточнения, блокирования или уничтожения неполных или недостоверных данных;</li>
+              <li>Отозвать согласие в любой момент, направив письмо на официальную электронную почту: <a href={`mailto:${COMPANY_CONFIG.email}`} className="text-blue-600 underline">{COMPANY_CONFIG.email}</a>.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>5. Порядок сбора, хранения и защиты данных</span>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 border-b border-slate-100 pb-2 mb-3">
+              6. Файлы cookie и Яндекс.Метрика
             </h2>
-            <p>
-              5.1. Безопасность персональных данных, обрабатываемых Оператором, обеспечивается путем реализации правовых, организационных и технических мер, необходимых для выполнения в полном объеме требований действующего законодательства РФ в области защиты информации.
-            </p>
-            <p>
-              5.2. Оператор гарантирует сохранность персональных данных и принимает все возможные меры, исключающие доступ к персональным данным неуполномоченных лиц.
-            </p>
-            <p>
-              5.3. <strong>Персональные данные Пользователя ни при каких условиях не передаются третьим лицам</strong>, сторонним рекламным сетям или маркетинговым брокерам, за исключением случаев, предусмотренных требованиями законодательства РФ либо при непосредственной передаче адреса доставки штатной сервисно-монтажной службе для выполнения заказа.
-            </p>
-            <p>
-              5.4. Срок обработки персональных данных является неограниченным до момента отзыва согласия Пользователем. Хранение осуществляется в защищенных базах данных на территории Российской Федерации.
+            <p className="mb-2">
+              Сайт использует файлы cookie и веб-аналитику Яндекс.Метрика для оценки источников трафика. Персональные данные из форм ввода в аналитические отчеты не передаются. Пользователь может отключить сохранение cookie в настройках браузера.
             </p>
           </section>
 
-          <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>6. Права Пользователя и отзыв согласия</span>
+          <section className="bg-slate-50 p-5 rounded-xl border border-slate-200">
+            <h2 className="text-sm sm:text-base font-bold text-slate-900 flex items-center space-x-2 mb-3">
+              <Building2 className="w-4 h-4 text-blue-600" />
+              <span>7. Официальные реквизиты Оператора</span>
             </h2>
-            <p>
-              6.1. Пользователь имеет право на получение информации, касающейся обработки его персональных данных, требовать их уточнения, блокирования или уничтожения в случае, если данные являются неполными, устаревшими или неточными.
-            </p>
-            <p>
-              6.2. Пользователь может в любой момент отозвать свое согласие на обработку персональных данных, направив соответствующее уведомление Оператору по электронной почте{' '}
-              <a href={`mailto:${COMPANY_CONFIG.email}`} className="text-blue-600 font-semibold underline">
-                {COMPANY_CONFIG.email}
-              </a>{' '}
-              с пометкой «Отзыв согласия на обработку персональных данных» или позвонив по номеру {COMPANY_CONFIG.phones.primary.formatted}.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>7. Файлы Cookie и аналитика</span>
-            </h2>
-            <p>
-              Сайт использует технологию cookie для улучшения взаимодействия с Пользователем и повышения удобства навигации. Пользователь может в любой момент отключить сохранение cookie в настройках своего браузера, однако это может ограничить работоспособность отдельных интерактивных элементов сайта.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 flex items-center space-x-2 border-b border-slate-100 pb-2 mb-3">
-              <span>8. Контактные данные Оператора</span>
-            </h2>
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs sm:text-sm space-y-2">
-              <p><strong>Наименование:</strong> Служба климатического оборудования «Центр Кондиционеров»</p>
-              <p><strong>Регион обслуживания:</strong> г. Владивосток, Артем, Уссурийск, Надеждинский район и Приморский край</p>
-              <p>
-                <strong>Телефон для справок:</strong>{' '}
-                <a href={COMPANY_CONFIG.phones.primary.tel} className="text-blue-600 font-semibold hover:underline">
-                  {COMPANY_CONFIG.phones.primary.formatted}
-                </a>{' '}
-                / {COMPANY_CONFIG.phones.mobile.formatted}
-              </p>
-              <p>
-                <strong>Электронная почта:</strong>{' '}
-                <a href={`mailto:${COMPANY_CONFIG.email}`} className="text-blue-600 font-semibold hover:underline">
-                  {COMPANY_CONFIG.email}
-                </a>
-              </p>
-              <p><strong>Режим работы:</strong> Ежедневно с 8:00 до 21:00 (без выходных)</p>
+            <div className="space-y-1 font-mono text-xs text-slate-700">
+              <p><strong>Оператор:</strong> {COMPANY_CONFIG.legalName}</p>
+              <p><strong>Сокращенно:</strong> {COMPANY_CONFIG.shortLegalName}</p>
+              <p><strong>ИНН:</strong> {COMPANY_CONFIG.inn} | <strong>КПП:</strong> {COMPANY_CONFIG.kpp}</p>
+              <p><strong>ОГРН:</strong> {COMPANY_CONFIG.ogrn} | <strong>ОКПО:</strong> {COMPANY_CONFIG.okpo}</p>
+              <p><strong>Генеральный директор:</strong> {COMPANY_CONFIG.director}</p>
+              <p><strong>Юридический адрес:</strong> {COMPANY_CONFIG.legalAddress}</p>
+              <p><strong>Телефоны:</strong> {COMPANY_CONFIG.phones.primary.formatted}, {COMPANY_CONFIG.phones.mobile.formatted}</p>
+              <p><strong>Email:</strong> <a href={`mailto:${COMPANY_CONFIG.email}`} className="text-blue-600 underline">{COMPANY_CONFIG.email}</a></p>
             </div>
           </section>
 
         </div>
 
-        {/* Bottom Back Button */}
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 text-sm font-semibold text-slate-600 hover:text-blue-600 transition"
+            className="inline-flex items-center space-x-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Вернуться на сайт центр-кондиционеров.рф</span>

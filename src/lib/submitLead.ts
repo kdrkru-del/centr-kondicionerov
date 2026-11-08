@@ -1,4 +1,5 @@
 import { COMPANY_CONFIG } from '@/config/company';
+import { reachGoal } from '@/components/analytics/YandexMetrika';
 
 export interface LeadSubmissionPayload {
   name?: string;
@@ -182,6 +183,13 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
 
   // Honeypot bot protection
   const honeypot = website ? String(website).trim() : '';
+  if (honeypot.length > 0) {
+    console.warn('[SPAM BLOCKED]: Honeypot field was filled by bot');
+    return {
+      ok: true,
+      message: 'Спасибо! Ваша заявка успешно принята.',
+    };
+  }
 
   const dateTimeStr =
     new Date().toLocaleString('ru-RU', {
@@ -239,6 +247,42 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
   body['Страница отправки'] = resolvedUrl;
   body['Дата и время'] = dateTimeStr;
 
+  // 1. Первичная фиксация в базе данных РФ через Lead Gateway (если настроен внешний шлюз)
+  const leadGatewayUrl = (process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL && !process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL.includes('localhost')) ? process.env.NEXT_PUBLIC_LEAD_GATEWAY_URL : '';
+  if (leadGatewayUrl) {
+    try {
+      const gwController = new AbortController();
+      const gwTimeout = setTimeout(() => gwController.abort(), 2500);
+      const gwRes = await fetch(leadGatewayUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          project: 'kondicionery',
+          name,
+          phone,
+          city,
+          service: productName || 'Подбор сплит-системы',
+          comment: comment ? `${comment} [Площадь: ${area || ''}, Модель: ${model || ''}]` : `Площадь: ${area || ''}, Модель: ${model || ''}`,
+          consent: true,
+          pageUrl: resolvedUrl,
+          source: source || 'lead_form'
+        }),
+        signal: gwController.signal
+      });
+      clearTimeout(gwTimeout);
+      if (gwRes.ok) {
+        recordSubmission(cleanDigits, name);
+        reachGoal('lead_submit', { productName, source });
+        return {
+          ok: true,
+          message: 'Спасибо! Ваша заявка успешно принята и зафиксирована.',
+        };
+      }
+    } catch (gwErr: any) {
+      console.warn('Lead Gateway offline, using direct delivery channel...', gwErr?.message || gwErr);
+    }
+  }
+
   // 1. Try sending directly to FormSubmit (works on static GitHub Pages)
   try {
     const res = await fetch(FORMSUBMIT_ENDPOINT, {
@@ -255,9 +299,7 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
 
     if (isSuccess) {
       recordSubmission(cleanDigits, name);
-      if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(101376260, 'reachGoal', 'lead_submit');
-      }
+      reachGoal('lead_submit', { productName, source });
       return {
         ok: true,
         message: 'Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в ближайшее время.',
@@ -286,9 +328,7 @@ export async function sendLead(payload: LeadSubmissionPayload): Promise<LeadSubm
 
     if (apiRes.ok) {
       recordSubmission(cleanDigits, name);
-      if (typeof window !== 'undefined' && (window as any).ym) {
-        (window as any).ym(101376260, 'reachGoal', 'lead_submit');
-      }
+      reachGoal('lead_submit', { productName, source });
       return {
         ok: true,
         message: 'Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в ближайшее время.',

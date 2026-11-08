@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import { Product } from '@/types';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { Sparkles, ArrowRight, RotateCcw, CheckCircle2 } from 'lucide-react';
+import { reachGoal } from '@/components/analytics/YandexMetrika';
 
 interface SelectionQuizProps {
   products: Product[];
@@ -190,7 +191,10 @@ export const SelectionQuiz: React.FC<SelectionQuizProps> = ({
               <div className="pt-4 flex justify-end">
                 <button
                   type="button"
-                  onClick={() => setStep(2)}
+                  onClick={() => {
+                    setStep(2);
+                    reachGoal('quiz_step', { step: 2, area });
+                  }}
                   className="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition shadow-lg shadow-blue-500/25 flex items-center space-x-2"
                 >
                   <span>Следующий шаг</span>
@@ -234,7 +238,10 @@ export const SelectionQuiz: React.FC<SelectionQuizProps> = ({
                 </button>
                 <button
                   type="button"
-                  onClick={() => setStep(3)}
+                  onClick={() => {
+                    setStep(3);
+                    reachGoal('quiz_step', { step: 3, roomType });
+                  }}
                   className="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition shadow-lg shadow-blue-500/25 flex items-center space-x-2"
                 >
                   <span>Следующий шаг</span>
@@ -278,7 +285,10 @@ export const SelectionQuiz: React.FC<SelectionQuizProps> = ({
                 </button>
                 <button
                   type="button"
-                  onClick={() => setStep(4)}
+                  onClick={() => {
+                    setStep(4);
+                    reachGoal('quiz_complete', { area, roomType, priority });
+                  }}
                   className="px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl text-sm transition shadow-lg shadow-emerald-500/25 flex items-center space-x-2"
                 >
                   <CheckCircle2 className="w-4 h-4" />

@@ -164,11 +164,14 @@ export const Footer: React.FC = () => {
         {/* Bottom row: copyright & links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>
-            © {new Date().getFullYear()} Центр Кондиционеров. Все права защищены. Продажа и установка климатической техники во Владивостоке.
+            © {new Date().getFullYear()} ООО «Окна-Центр» (ИНН 2543168553, ОГРН 1222500021963) · Центр Кондиционеров. Все права защищены. Продажа и установка климатической техники во Владивостоке.
           </div>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link href="/privacy" className="hover:text-blue-400 transition underline underline-offset-4 decoration-slate-700 hover:decoration-blue-400">
               Политика конфиденциальности
+            </Link>
+            <Link href="/consent" className="hover:text-blue-400 transition underline underline-offset-4 decoration-slate-700 hover:decoration-blue-400">
+              Согласие на обработку данных
             </Link>
             <span>Не является публичной офертой</span>
             <a
